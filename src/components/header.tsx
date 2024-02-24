@@ -22,13 +22,13 @@ export function Header() {
       {status === 'authenticated' ? (
         <Popover>
           <PopoverTrigger>
-            <Button className="text-md flex items-center gap-2 font-semibold">
+            <div className="text-md flex items-center gap-2 font-semibold">
               <Avatar className="h-8 w-8">
                 <AvatarImage src={data.user?.image!} />
                 <AvatarFallback></AvatarFallback>
               </Avatar>
               <span>{data.user.name}</span>
-            </Button>
+            </div>
           </PopoverTrigger>
           <PopoverContent className="w-fit">
             <Button variant="link" className="flex items-center gap-2">
