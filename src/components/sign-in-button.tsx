@@ -7,7 +7,11 @@ import { Button } from './ui/button';
 
 export function SignInButton() {
   return (
-    <Button variant="ghost" onClick={() => signIn()} className="flex items-center gap-2">
+    <Button
+      variant="outline"
+      onClick={() => signIn()}
+      className="flex items-center gap-2 bg-transparent"
+    >
       <LogIn />
       Sign in
     </Button>
