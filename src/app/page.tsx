@@ -1,3 +1,13 @@
-export default function Page() {
-  return <h1 className="text-lg font-medium">Hello world!</h1>;
+import { ReservationForm } from '@/components/reservation-form';
+import { fetchCarClasses, fetchLocations } from '@/lib/data';
+
+export default async function Page() {
+  const locations = await fetchLocations();
+  const carClasses = await fetchCarClasses();
+
+  return (
+    <section>
+      <ReservationForm locations={locations} carClasses={carClasses} />
+    </section>
+  );
 }
