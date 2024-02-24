@@ -1,11 +1,12 @@
 'use client';
 
-import { CarFront, CircleUserRound } from 'lucide-react';
+import Link from 'next/link';
+import { useSession } from 'next-auth/react';
+import { CarFront, BookText } from 'lucide-react';
 
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from './ui/button';
-import { signIn, useSession } from 'next-auth/react';
 import { SignInButton } from './sign-in-button';
 import { SignOutButton } from './sign-out-button';
 
@@ -30,6 +31,10 @@ export function Header() {
             </Button>
           </PopoverTrigger>
           <PopoverContent className="w-fit">
+            <Button variant="link" className="flex items-center gap-2">
+              <BookText size={25} />
+              <Link href={'/reservations'}>View reservations</Link>
+            </Button>
             <SignOutButton />
           </PopoverContent>
         </Popover>
