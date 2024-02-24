@@ -27,6 +27,7 @@ import { Calendar } from './ui/calendar';
 import { Popover, PopoverTrigger, PopoverContent } from './ui/popover';
 import { Switch } from './ui/switch';
 import { cn } from '@/lib/utils';
+import { createReservation } from '@/lib/actions';
 
 const reservationFormSchema = z.object({
   pickUpLocation: z.string().min(1, { message: 'The pick-up location is required.' }),
@@ -53,8 +54,8 @@ export function ReservationForm({ locations, carClasses }: ReservationFormProps)
     }
   });
 
-  function onSubmit(values: z.infer<typeof reservationFormSchema>) {
-    console.log(values);
+  async function onSubmit(data: z.infer<typeof reservationFormSchema>) {
+    await createReservation(data);
   }
 
   return (
