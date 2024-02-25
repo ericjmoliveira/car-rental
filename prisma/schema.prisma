@@ -66,15 +66,16 @@ model Location {
 }
 
 model Reservation {
-  id            String    @id @default(cuid())
-  userId        String?
-  classId       String?
-  locationId    String?
-  pickupDate    DateTime
-  returnDate    DateTime
-  isYoungRenter Boolean
-  totalPrice    Int
-  user          User?     @relation(fields: [userId], references: [id])
-  class         Class?    @relation(fields: [classId], references: [id])
-  location      Location? @relation(fields: [locationId], references: [id])
+  id              String    @id @default(cuid())
+  userId          String?
+  classId         String?
+  locationId      String?
+  pickupDate      DateTime
+  returnDate      DateTime
+  isYoungRenter   Boolean
+  totalPrice      Int
+  reservationDate DateTime  @default(now())
+  user            User?     @relation(fields: [userId], references: [id])
+  class           Class?    @relation(fields: [classId], references: [id])
+  location        Location? @relation(fields: [locationId], references: [id])
 }
