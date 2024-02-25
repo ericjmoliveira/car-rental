@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils';
 import './globals.css';
 import { Content } from '@/components/content';
 import { AuthProvider } from '@/components/auth-provider';
+import { Toaster } from '@/components/ui/toaster';
 
 export const fontSans = FontSans({
   subsets: ['latin'],
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <AuthProvider>
           <Header />
           <Content>{children}</Content>
+          <Toaster />
         </AuthProvider>
       </body>
     </html>
