@@ -3,11 +3,11 @@ import { Inter as FontSans } from 'next/font/google';
 
 import { Header } from '@/components/header';
 
+import { AuthProvider } from '@/components/auth-provider';
+import { Content } from '@/components/content';
+import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
 import './globals.css';
-import { Content } from '@/components/content';
-import { AuthProvider } from '@/components/auth-provider';
-import { Toaster } from '@/components/ui/toaster';
 
 export const fontSans = FontSans({
   subsets: ['latin'],
