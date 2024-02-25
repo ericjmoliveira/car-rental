@@ -94,7 +94,10 @@ export function ReservationForm({ locations, carClasses }: ReservationFormProps)
     }
 
     router.push('/reservations');
-    toast({ title: 'Reservation successfully created!' });
+    toast({
+      title: 'Reservation successfully created!',
+      description: 'Head to any of our units in the location chosen to pick up the car.'
+    });
   }
 
   return (
