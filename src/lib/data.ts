@@ -30,6 +30,16 @@ export async function fetchLocations() {
   }
 }
 
+export async function fetchLocationById(id: string) {
+  try {
+    const locations = await prisma.location.findUnique({ where: { id } });
+
+    return locations;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export async function fetchUserReservations(userId: string) {
   try {
     const userReservations = await prisma.reservation.findMany({ where: { userId } });
