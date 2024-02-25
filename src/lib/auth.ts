@@ -1,4 +1,4 @@
-import NextAuth, { AuthOptions, DefaultSession } from 'next-auth';
+import NextAuth, { AuthOptions, DefaultSession, getServerSession } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 
@@ -26,3 +26,13 @@ export const authOptions: AuthOptions = {
 };
 
 export const authHandler = NextAuth(authOptions);
+
+export async function getAuthenticatedUser() {
+  const session = await getServerSession(authOptions);
+
+  if (!session?.user) {
+    return null;
+  }
+
+  return session.user;
+}
