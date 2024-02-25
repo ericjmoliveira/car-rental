@@ -42,7 +42,20 @@ export async function fetchLocationById(id: string) {
 
 export async function fetchUserReservations(userId: string) {
   try {
-    const userReservations = await prisma.reservation.findMany({ where: { userId } });
+    const userReservations = await prisma.reservation.findMany({
+      where: { userId },
+      select: {
+        location: true,
+        class: true,
+        id: true,
+        pickupDate: true,
+        returnDate: true,
+        isYoungRenter: true,
+        totalPrice: true,
+        reservationDate: true
+      },
+      orderBy: { reservationDate: 'desc' }
+    });
 
     return userReservations;
   } catch (error) {
