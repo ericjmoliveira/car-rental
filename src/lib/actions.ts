@@ -1,9 +1,10 @@
 'use server';
 
-import { prisma } from './prisma';
-import { fetchCarClassById, fetchLocationById } from './data';
-import { getAuthenticatedUser } from './auth';
 import { calculateReservationTotalPrice } from '@/helpers/reservation';
+import { revalidatePath } from 'next/cache';
+import { getAuthenticatedUser } from './auth';
+import { fetchCarClassById, fetchLocationById } from './data';
+import { prisma } from './prisma';
 
 interface ReservationData {
   pickUpLocation: string;
@@ -40,9 +41,21 @@ export async function createReservation(data: ReservationData) {
     };
 
     await prisma.reservation.create({ data: reservationData });
+
+    revalidatePath('/reservations');
   } catch (error) {
     return {
       message: 'An internal error occurred, try again later'
     };
   }
+}
+
+export async function deleteReservation(id: string) {
+  const user = await getAuthenticatedUser();
+
+  if (!user) return;
+
+  await prisma.reservation.delete({ where: { id } });
+
+  revalidatePath('/reservations');
 }
