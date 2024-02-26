@@ -18,13 +18,10 @@ export function CarClassesList({ carClasses }: CarClassesListProps) {
             <CardDescription>{carClass.carExample} or similar</CardDescription>
           </CardHeader>
           <CardContent>
-            <Image
+            <img
               src={carClass.carExampleImage}
-              width={250}
-              height={250}
               alt={carClass.carExample}
-              className="mx-auto h-auto w-auto"
-              priority
+              className="mx-auto h-auto w-80"
             />
           </CardContent>
           <CardFooter>
