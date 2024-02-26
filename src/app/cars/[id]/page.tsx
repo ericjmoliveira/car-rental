@@ -14,13 +14,10 @@ export default async function Page({ params }: { params: { id: string } }) {
     <div>
       <h2 className="mb-4 text-2xl font-semibold">{carClass?.name} Class</h2>
       <p className="mb-4">{carClass?.description}</p>
-      <Image
-        src={carClass?.carExampleImage!}
-        width={250}
-        height={250}
-        alt={carClass?.carExample!}
-        className="mx-auto h-auto w-auto"
-        priority
+      <img
+        src={carClass?.carExampleImage}
+        alt={carClass?.carExample}
+        className="mx-auto h-auto w-80"
       />
       <h3 className="mb-4 text-xl font-semibold">{carClass?.carExample} or similar</h3>
       <Separator />
