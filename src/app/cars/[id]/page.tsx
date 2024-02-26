@@ -17,7 +17,7 @@ export default async function Page({ params }: { params: { id: string } }) {
       <img
         src={carClass?.carExampleImage}
         alt={carClass?.carExample}
-        className="mx-auto h-auto w-80"
+        className="mx-auto h-auto w-96"
       />
       <h3 className="mb-4 text-xl font-semibold">{carClass?.carExample} or similar</h3>
       <Separator />
@@ -27,14 +27,14 @@ export default async function Page({ params }: { params: { id: string } }) {
           {carClass?.details.map((detail) => <li key={detail}>{detail}</li>)}
         </ul>
       </div>
-      <div>
+      <div className="mb-16">
         <p className="my-4 font-semibold uppercase">Features</p>
         <ul className="mb-8 list-inside list-disc items-center font-medium">
           {carClass?.features.map((detail) => <li key={detail}>{detail}</li>)}
         </ul>
       </div>
       <ReservationForm locations={locations} carClasses={carClasses} />
-      <h3 className="my-8 text-2xl font-semibold">Explore Similar Vehicle Classes</h3>
+      <h3 className="my-16 text-2xl font-semibold">Explore Similar Vehicle Classes</h3>
       <CarClassesList carClasses={carClasses?.filter((carClass) => carClass.id !== params.id)} />
     </div>
   );

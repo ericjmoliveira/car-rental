@@ -41,11 +41,11 @@ export default async function Page() {
 
   return (
     <div>
-      <h2 className="mb-4 text-2xl font-semibold">Reservations List</h2>
+      <h2 className="mb-4 text-2xl font-semibold md:mb-8">Reservations List</h2>
       {userReservations?.length === 0 ? (
         <p>You have no reservations.</p>
       ) : (
-        <div className="grid grid-cols-1 gap-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
           {userReservations?.map((reservation) => (
             <Card key={reservation.id}>
               <CardHeader>

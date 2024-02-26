@@ -101,7 +101,7 @@ export function ReservationForm({ locations, carClasses }: ReservationFormProps)
   }
 
   return (
-    <div>
+    <div className="mx-auto md:w-1/2">
       <h2 className="mb-4 text-2xl font-semibold">Reserve a Vehicle</h2>
       <p className="mb-4">
         Unlock the freedom to explore with our extensive range of rental vehicles. Whether you are

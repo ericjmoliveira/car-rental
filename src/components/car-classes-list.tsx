@@ -10,7 +10,7 @@ interface CarClassesListProps {
 
 export function CarClassesList({ carClasses }: CarClassesListProps) {
   return (
-    <div className="grid grid-cols-1 gap-4">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
       {carClasses?.map((carClass) => (
         <Card key={carClass.id}>
           <CardHeader>
@@ -21,7 +21,7 @@ export function CarClassesList({ carClasses }: CarClassesListProps) {
             <img
               src={carClass.carExampleImage}
               alt={carClass.carExample}
-              className="mx-auto h-auto w-80"
+              className="mx-auto mb-4 h-auto w-80"
             />
           </CardContent>
           <CardFooter>
