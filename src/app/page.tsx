@@ -3,6 +3,10 @@ import { fetchCarClasses, fetchLocations } from '@/lib/data';
 import { CarClassesList } from '@/components/car-classes-list';
 import { ReservationForm } from '@/components/reservation-form';
 
+export const metadata = {
+  title: 'Rent-a-Car | Home'
+};
+
 export default async function Page() {
   const locations = await fetchLocations();
   const carClasses = await fetchCarClasses();

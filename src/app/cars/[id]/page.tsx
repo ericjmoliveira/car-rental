@@ -1,8 +1,15 @@
 import { CarClassesList } from '@/components/car-classes-list';
 import { fetchCarClassById, fetchCarClasses, fetchLocations } from '@/lib/data';
 import { Separator } from '@/components/ui/separator';
-import Image from 'next/image';
 import { ReservationForm } from '@/components/reservation-form';
+
+export async function generateMetadata({ params }: { params: { id: string } }) {
+  const carClassData = await fetchCarClassById(params.id);
+
+  return {
+    title: `Rent-a-Car | ${carClassData?.name} Class`
+  };
+}
 
 // /cars/[id]
 export default async function Page({ params }: { params: { id: string } }) {

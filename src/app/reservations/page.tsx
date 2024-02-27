@@ -29,6 +29,10 @@ import { CancelReservation } from '@/components/cancel-reservation';
 import { Button } from '@/components/ui/button';
 import { format } from 'date-fns';
 
+export const metadata = {
+  title: 'Rent-a-Car | Reservations List'
+};
+
 // /reservations
 export default async function Page() {
   const authenticatedUser = await getAuthenticatedUser();
