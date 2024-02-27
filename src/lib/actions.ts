@@ -22,8 +22,6 @@ export async function createReservation(data: ReservationData) {
   if (!user || !location || !carClass) return;
 
   try {
-    if (!carClass) return;
-
     const { rentTotalPrice } = calculateReservationTotalPrice({
       pickupDate: data.pickUpDate,
       returnDate: data.returnDate,
