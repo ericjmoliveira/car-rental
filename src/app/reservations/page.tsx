@@ -53,13 +53,10 @@ export default async function Page() {
                 <CardDescription>{reservation.class?.carExample} or similar</CardDescription>
               </CardHeader>
               <CardContent>
-                <Image
-                  src={reservation.class?.carExampleImage!}
-                  width={250}
-                  height={250}
-                  alt={reservation.class?.carExample!}
-                  className="mx-auto h-auto w-auto"
-                  priority
+                <img
+                  src={reservation.class?.carExampleImage}
+                  alt={reservation.class?.carExample}
+                  className="mx-auto h-auto w-96"
                 />
                 <section className="mb-4 flex flex-col gap-2">
                   <div className="flex items-center justify-between">
