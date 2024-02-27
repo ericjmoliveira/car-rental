@@ -2,7 +2,6 @@ import { fetchCarClasses, fetchLocations } from '@/lib/data';
 
 import { CarClassesList } from '@/components/car-classes-list';
 import { ReservationForm } from '@/components/reservation-form';
-import { Button } from '@/components/ui/button';
 
 export default async function Page() {
   const locations = await fetchLocations();
