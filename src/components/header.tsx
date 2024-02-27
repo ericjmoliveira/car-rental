@@ -6,15 +6,15 @@ import Link from 'next/link';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaCar } from 'react-icons/fa';
 import { SignInButton } from './sign-in-button';
 import { SignOutButton } from './sign-out-button';
 import { Button } from './ui/button';
+import { useRouter } from 'next/navigation';
 
 export function Header() {
   const { data, status } = useSession();
-  const [popoverOpen, setPopoverOpen] = useState(false);
 
   return (
     <header className="flex w-full items-center justify-between bg-slate-900 p-4 text-white">
@@ -25,7 +25,7 @@ export function Header() {
         </div>
       </Link>
       {status === 'authenticated' ? (
-        <Popover open={popoverOpen} onOpenChange={() => setPopoverOpen(true)}>
+        <Popover>
           <PopoverTrigger>
             <div className="text-md flex items-center gap-2 font-semibold">
               <Avatar className="h-8 w-8">
@@ -38,9 +38,7 @@ export function Header() {
           <PopoverContent className="w-fit">
             <Button variant="link" className="flex items-center gap-2">
               <BookText size={25} />
-              <Link href={'/reservations'} onClick={() => setPopoverOpen(false)}>
-                View reservations
-              </Link>
+              <Link href={'/reservations'}>View reservations</Link>
             </Button>
             <SignOutButton />
           </PopoverContent>
