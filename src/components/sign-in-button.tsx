@@ -9,7 +9,7 @@ export function SignInButton() {
   return (
     <Button
       variant="outline"
-      onClick={() => signIn()}
+      onClick={() => signIn('google')}
       className="flex items-center gap-2 bg-transparent"
     >
       <LogIn />
