@@ -41,8 +41,8 @@ export default async function Page({ params }: { params: { id: string } }) {
         </ul>
       </div>
       <ReservationForm locations={locations} carClasses={carClasses} />
-      <h3 className="my-16 text-2xl font-semibold">Explore Similar Vehicle Classes</h3>
-      <CarClassesList carClasses={carClasses?.filter((carClass) => carClass.id !== params.id)} />
+      <h3 className="my-16 text-2xl font-semibold">Explore All Vehicle Classes</h3>
+      <CarClassesList carClasses={carClasses} />
     </div>
   );
 }

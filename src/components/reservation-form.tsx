@@ -255,7 +255,7 @@ export function ReservationForm({ locations, carClasses }: ReservationFormProps)
       </Form>
       <Dialog>
         {status === 'unauthenticated' ? (
-          <Button onClick={() => signIn()} className="mt-8 w-full">
+          <Button onClick={() => signIn('google')} className="mt-8 w-full">
             Sign in to continue
           </Button>
         ) : (

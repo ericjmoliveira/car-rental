@@ -1,5 +1,4 @@
 import { Class } from '@prisma/client';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card';
@@ -18,11 +17,13 @@ export function CarClassesList({ carClasses }: CarClassesListProps) {
             <CardDescription>{carClass.carExample} or similar</CardDescription>
           </CardHeader>
           <CardContent>
-            <img
-              src={carClass.carExampleImage}
-              alt={carClass.carExample}
-              className="mx-auto mb-4 h-auto w-80"
-            />
+            <div className="mx-auto h-80 w-80">
+              <img
+                src={carClass.carExampleImage}
+                alt={carClass.carExample}
+                className="object-cover"
+              />
+            </div>
           </CardContent>
           <CardFooter>
             <Link href={`/cars/${carClass.id}`} className="w-full">

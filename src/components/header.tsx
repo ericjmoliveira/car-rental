@@ -6,12 +6,10 @@ import Link from 'next/link';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { useEffect, useState } from 'react';
 import { FaCar } from 'react-icons/fa';
 import { SignInButton } from './sign-in-button';
 import { SignOutButton } from './sign-out-button';
 import { Button } from './ui/button';
-import { useRouter } from 'next/navigation';
 
 export function Header() {
   const { data, status } = useSession();
